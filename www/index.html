@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+    <title>Ionic Pivot Cards</title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- tdcards css -->
+    <link rel="stylesheet" href="css/ionic.swoosh.cards.css">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <script src="lib/collide/collide.js"></script>
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- tdcards js -->
+    <script src="js/ionic.gallery.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- app js -->
+    <script src="js/app.js"></script>
+
+  </head>
+  <body ng-app="starter" no-scroll>
+    <ion-pane ng-controller="CardsCtrl" class="background-grey">
+
+      <ion-header-bar class="bar-default">
+        <h1 class="title">Ionic Swivel Cards</h1>
+      </ion-header-bar>
+
+      <button class="button trigger-card">
+        Click
+      </button>
+
+      <div ng-if="cards.active">
+        <pivot-cards spacing="30">
+          <pivot-card ng-repeat="card in cards.active">
+            <div ng-controller="CardCtrl">
+
+              <div class="top">
+                <img ng-src="{{ card.image }}" />
+              </div>
+              <div class="bottom">
+                <h1>{{ card.country }}</h1>
+                <p>{{ card.text }}</p>
+              </div>
+            </div>
+          </pivot-card>
+
+        </pivot-cards>
+      </div>
+
+    </ion-pane>
+  </body>
+</html>
